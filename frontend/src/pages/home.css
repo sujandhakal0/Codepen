@@ -1,0 +1,47 @@
+
+
+.card {
+  background: black;
+  padding: 3px;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.card::after,
+.card::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    #7285ee,
+    #6ad06a,
+    #f3cd54,
+    #aa6bde,
+    #7285ee
+  );
+  z-index: -1;
+
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 3px;
+  border-radius: 6px;
+  animation: 2s spin linear infinite;
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}

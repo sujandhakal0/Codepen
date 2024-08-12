@@ -1,0 +1,19 @@
+.code-editor {
+  height: 420px;
+}
+
+@media (max-height: 900px) {
+    .code-editor {
+      height: 370px;
+    }
+  }
+@media (max-height: 800px) {
+    .code-editor {
+      height: 330px;
+    }
+  }
+@media (max-height: 700px) {
+    .code-editor {
+      height: 280px;
+    }
+  }
