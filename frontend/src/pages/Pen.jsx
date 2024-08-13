@@ -191,10 +191,11 @@ const Pen = () => {
             </div>
           ) : (
             <div>
-              <motion.button className="bg-[#444857] hover:bg-[#5a5f73] rounded px-4 py-2 flex items-center justify-center gap-1">
+              <motion.button className="bg-[#444857] hover:bg-[#5a5f73] rounded px-4 py-2 flex items-center justify-center gap-1 ">
                 <Link to={"/login"}>
-                  <IoIosCloudy className="text-white text-xl" /> Save
+                  <IoIosCloudy className="text-white text-xl" />
                 </Link>
+                <div>Save</div>
               </motion.button>
             </div>
           )}
