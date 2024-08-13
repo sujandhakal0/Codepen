@@ -28,6 +28,7 @@ const Signup = () => {
         }
       );
       toast.success(data.message);
+      navigate("/login");
     } catch (error) {
       toast.error(error.response.data.message);
     }
