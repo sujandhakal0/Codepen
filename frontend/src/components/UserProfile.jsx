@@ -18,9 +18,12 @@ const UserProfile = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const data = await axios.get("http://localhost:4000/api/v1/user/me", {
-          withCredentials: true,
-        });
+        const data = await axios.get(
+          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
+          {
+            withCredentials: true,
+          }
+        );
 
         setUser(data.data.user);
       } catch (error) {

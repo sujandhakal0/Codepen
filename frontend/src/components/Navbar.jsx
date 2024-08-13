@@ -16,13 +16,12 @@ import { Context } from "@/main";
 import UserProfile from "./UserProfile";
 
 const Navbar = ({ searchQuery, setSearchQuery }) => {
-
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `http://localhost:4000/api/v1/user/logout`,
+        `https://codepen-backend-t587.onrender.com/api/v1/user/logout`,
         {
           withCredentials: true,
         }

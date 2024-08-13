@@ -1,11 +1,9 @@
-
 import { Context } from "@/main";
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 import { Link, useNavigate } from "react-router-dom";
-
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -18,7 +16,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `http://localhost:4000/api/v1/user/signup`,
+        `https://codepen-backend-t587.onrender.com/api/v1/user/signup`,
         {
           name,
           email,
@@ -120,9 +118,7 @@ const Signup = () => {
             </p>
           </form>
         </div>
-        <div>
-          
-        </div>
+        <div></div>
       </div>
     </div>
   );

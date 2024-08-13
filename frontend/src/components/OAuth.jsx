@@ -16,7 +16,7 @@ const OAuth = () => {
       const result = await signInWithPopup(auth, provider);
 
       const res = await axios.post(
-        "http://localhost:4000/api/v1/user/google",
+        "https://codepen-backend-t587.onrender.com/api/v1/user/google",
         {
           name: result.user.displayName,
           email: result.user.email,

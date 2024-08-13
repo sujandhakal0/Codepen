@@ -17,7 +17,7 @@ const Projects = ({ searchQuery }) => {
   const handleDelete = async (projectId) => {
     try {
       await axios.delete(
-        `http://localhost:4000/api/v1/save/deleteProgram/${projectId}`
+        `https://codepen-backend-t587.onrender.com/api/v1/save/deleteProgram/${projectId}`
       );
       setProjects((prevProjects) =>
         prevProjects.filter((project) => project._id !== projectId)
@@ -32,7 +32,7 @@ const Projects = ({ searchQuery }) => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/save/getProjects"
+          "https://codepen-backend-t587.onrender.com/api/v1/save/getProjects"
         );
         setProjects(response.data.programs);
       } catch (error) {
@@ -46,10 +46,8 @@ const Projects = ({ searchQuery }) => {
   // Filter projects based on search query
   const filteredProjects = projects.filter((project) => {
     const searchText = searchQuery.toLowerCase();
-    return (
-      project.fullCode.title.toLowerCase().includes(searchText) 
-      // Add additional search criteria logic if needed (e.g., description, tags)
-    );
+    return project.fullCode.title.toLowerCase().includes(searchText);
+    // Add additional search criteria logic if needed (e.g., description, tags)
   });
 
   return (
