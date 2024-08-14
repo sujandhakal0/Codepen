@@ -23,12 +23,12 @@ function App() {
         setUser(data.user);
         setIsAuthenticated(true);
       } catch (error) {
-        // setIsAuthenticated(false);
-        // setUser({});
+        setIsAuthenticated(false);
+        setUser({});
       }
     };
     getUser();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, setIsAuthenticated]);
 
   return (
     <div className="w-screen h-screen flex items-start justify-start overflow-hidden">
