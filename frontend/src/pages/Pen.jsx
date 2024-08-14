@@ -26,7 +26,7 @@ const Pen = () => {
   const loadCoad = async () => {
     try {
       const response = await axios.post(
-        "https://codepen-backend-t587.onrender.com/api/v1/save/getProgram",
+        "https://codepen-backend-t587.onrender.com/v1/save/getProgram",
         {
           urlId: urlId,
         }
@@ -62,7 +62,7 @@ const Pen = () => {
     const getUser = async () => {
       try {
         const data = await axios.get(
-          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
+          "https://codepen-backend-t587.onrender.com/v1/user/me",
           {
             withCredentials: true,
           }
@@ -93,7 +93,7 @@ const Pen = () => {
     setSaveLoading(true);
     try {
       const response = await axios.post(
-        "https://codepen-backend-t587.onrender.com/api/v1/save/saveProgram",
+        "https://codepen-backend-t587.onrender.com/v1/save/saveProgram",
         {
           fullCode: {
             title: title,
@@ -191,11 +191,10 @@ const Pen = () => {
             </div>
           ) : (
             <div>
-              <motion.button className="bg-[#444857] hover:bg-[#5a5f73] rounded px-4 py-2 flex items-center justify-center gap-1 ">
+              <motion.button className="bg-[#444857] hover:bg-[#5a5f73] rounded px-4 py-2 flex items-center justify-center gap-1">
                 <Link to={"/login"}>
-                  <IoIosCloudy className="text-white text-xl" />
+                  <IoIosCloudy className="text-white text-xl" /> Save
                 </Link>
-                <div>Save</div>
               </motion.button>
             </div>
           )}

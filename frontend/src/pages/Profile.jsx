@@ -10,7 +10,8 @@ const Profile = () => {
     const getUser = async () => {
       try {
         const data = await axios.get(
-          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
+          // http://localhost:4000
+          "https://codepen-backend-t587.onrender.com/v1/user/me",
           {
             withCredentials: true,
           }

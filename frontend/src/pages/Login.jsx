@@ -6,8 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { isAuthenticated, setIsAuthenticated, user, setUser } =
-    useContext(Context);
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `https://codepen-backend-t587.onrender.com/api/v1/user/login`,
+        `https://codepen-backend-t587.onrender.com/v1/user/login`,
         {
           email,
           password,
@@ -28,11 +27,10 @@ const Login = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      setIsAuthenticated(true);
       toast.success(data.message);
-      // navigate("/");
+      setIsAuthenticated(true);
     } catch (error) {
-      toast.error(error.response.data.message, error);
+      toast.error(error.response.data.message);
     }
   };
 

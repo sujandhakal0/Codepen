@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useContext, useEffect } from "react";
 import axios from "axios";
 import { Context } from "./main";
@@ -15,7 +15,7 @@ function App() {
     const getUser = async () => {
       try {
         const data = await axios.get(
-          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
+          "https://codepen-backend-t587.onrender.com/v1/user/me",
           {
             withCredentials: true,
           }
@@ -25,7 +25,6 @@ function App() {
       } catch (error) {
         setIsAuthenticated(false);
         setUser({});
-        toast.error(error.response.data.message, error);
       }
     };
     getUser();

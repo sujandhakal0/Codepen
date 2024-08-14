@@ -4,11 +4,13 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
+
+
 export const Context = createContext({
   isAuthenticated: false,
 });
 const AppWrapper = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
   return (
     <Context.Provider
@@ -22,6 +24,8 @@ const AppWrapper = () => {
 };
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+
     <AppWrapper />
+
   </React.StrictMode>
 );

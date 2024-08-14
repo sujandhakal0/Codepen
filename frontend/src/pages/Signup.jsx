@@ -16,7 +16,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `https://codepen-backend-t587.onrender.com/api/v1/user/signup`,
+        `https://codepen-backend-t587.onrender.com/v1/user/signup`,
         {
           name,
           email,
@@ -28,7 +28,6 @@ const Signup = () => {
         }
       );
       toast.success(data.message);
-      navigate("/login");
     } catch (error) {
       toast.error(error.response.data.message);
     }

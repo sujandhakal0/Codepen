@@ -12,8 +12,8 @@ import Main from "@/components/Main";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { isAuthenticated, setIsAuthenticated, user, setUser } =
-    useContext(Context);
+  const { isAuthenticated } = useContext(Context);
+  const navigate = useNavigate();
 
   return (
     <div className="w-full ">
