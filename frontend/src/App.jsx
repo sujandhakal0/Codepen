@@ -23,8 +23,8 @@ function App() {
         setUser(data.user);
         setIsAuthenticated(true);
       } catch (error) {
-        setIsAuthenticated(false);
-        setUser({});
+        // setIsAuthenticated(false);
+        // setUser({});
       }
     };
     getUser();
