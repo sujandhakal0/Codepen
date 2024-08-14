@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useContext, useEffect } from "react";
 import axios from "axios";
 import { Context } from "./main";
@@ -25,6 +25,7 @@ function App() {
       } catch (error) {
         setIsAuthenticated(false);
         setUser({});
+        toast.error(error.response.data.message, error);
       }
     };
     getUser();

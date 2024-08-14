@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./home.css";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
@@ -9,31 +9,11 @@ import Login from "./Login";
 import { Context } from "@/main";
 import Projects from "./Projects";
 import Main from "@/components/Main";
-import axios from "axios";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { isAuthenticated, setIsAuthenticated, user, setUser } =
     useContext(Context);
-  const navigate = useNavigate();
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const data = await axios.get(
-          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
-          {
-            withCredentials: true,
-          }
-        );
-        setUser(data.user);
-        setIsAuthenticated(true);
-      } catch (error) {
-        setIsAuthenticated(false);
-        setUser({});
-      }
-    };
-    getUser();
-  }, [isAuthenticated, setIsAuthenticated]);
 
   return (
     <div className="w-full ">
