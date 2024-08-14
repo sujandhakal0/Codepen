@@ -30,15 +30,15 @@ const Login = () => {
       );
       setIsAuthenticated(true);
       toast.success(data.message);
-      navigate("/");
+      // navigate("/");
     } catch (error) {
       toast.error(error.response.data.message, error);
     }
   };
 
-  // if (isAuthenticated) {
-  //   navigate("/");
-  // }
+  if (isAuthenticated) {
+    navigate("/");
+  }
 
   return (
     <div className="text-white  py-11 w-full container">
