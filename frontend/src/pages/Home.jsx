@@ -12,8 +12,27 @@ import Main from "@/components/Main";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { isAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, user, setUser } =
+    useContext(Context);
   const navigate = useNavigate();
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const data = await axios.get(
+          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
+          {
+            withCredentials: true,
+          }
+        );
+        setUser(data.user);
+        setIsAuthenticated(true);
+      } catch (error) {
+        setIsAuthenticated(false);
+        setUser({});
+      }
+    };
+    getUser();
+  }, [isAuthenticated, setIsAuthenticated]);
 
   return (
     <div className="w-full ">

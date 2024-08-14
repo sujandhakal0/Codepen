@@ -28,7 +28,7 @@ function App() {
       }
     };
     getUser();
-  }, [isAuthenticated, setIsAuthenticated]);
+  }, [isAuthenticated]);
 
   return (
     <div className="w-screen h-screen flex items-start justify-start overflow-hidden">
