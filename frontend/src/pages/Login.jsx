@@ -28,15 +28,16 @@ const Login = () => {
         }
       );
       toast.success(data.message);
+      navigate("/");
       setIsAuthenticated(true);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data.message, error);
     }
   };
 
-  if (isAuthenticated) {
-    navigate("/");
-  }
+  // if (isAuthenticated) {
+  //   navigate("/");
+  // }
 
   return (
     <div className="text-white  py-11 w-full container">
