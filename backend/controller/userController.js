@@ -117,7 +117,7 @@ exports.login = async (req, res, next) => {
 // ..........
 exports.getUser = async (req, res, next) => {
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findById(req.user._id);
 
     if (!user) {
       return next(new Error("User not found"));

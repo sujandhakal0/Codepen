@@ -2,8 +2,9 @@ const express = require("express");
 const {
   signup,
   login,
-  getUser,
+
   logout,
+  getUser,
 } = require("../controller/userController");
 const { isAuthenticated } = require("../middleware/auth");
 
