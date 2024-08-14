@@ -6,7 +6,8 @@ import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, user, setUser } =
+    useContext(Context);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,9 +28,9 @@ const Login = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
+      setIsAuthenticated(true);
       toast.success(data.message);
       navigate("/");
-      setIsAuthenticated(true);
     } catch (error) {
       toast.error(error.response.data.message, error);
     }

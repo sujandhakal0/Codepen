@@ -4,8 +4,6 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 
-
-
 export const Context = createContext({
   isAuthenticated: false,
 });
@@ -24,8 +22,6 @@ const AppWrapper = () => {
 };
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-
     <AppWrapper />
-
   </React.StrictMode>
 );
