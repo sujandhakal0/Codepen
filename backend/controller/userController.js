@@ -2,11 +2,7 @@ const User = require("../models/userSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
-const {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithCredential,
-} = require("firebase-admin/auth");
+
 const { initializeApp, cert } = require("firebase-admin/app");
 const serviceAccount = require("../config/codepen-95878-firebase-adminsdk-iob0y-07a16dced2.json");
 const bcryptjs = require("bcryptjs");
