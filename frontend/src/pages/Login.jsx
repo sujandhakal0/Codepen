@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `https://codepen-backend-t587.onrender.com/v1/user/login`,
+        `https://codepen-backend-t587.onrender.com/api/v1/user/login`,
         {
           email,
           password,
