@@ -12,8 +12,10 @@ import Main from "@/components/Main";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { isAuthenticated, setUser, setIsAuthenticated } = useContext(Context);
+
+  const [auth, isAuth] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -23,15 +25,14 @@ const Home = () => {
             withCredentials: true,
           }
         );
-        setUser(data.user);
-        setIsAuthenticated(true);
+        isAuth(true);
       } catch (error) {
-        setIsAuthenticated(false);
-        setUser({});
+        isAuth(false);
       }
     };
     getUser();
-  }, [isAuthenticated]);
+  }, []);
+
   return (
     <div className="w-full ">
       <div className="flex  ">
@@ -40,7 +41,7 @@ const Home = () => {
           className={`right flex-1 min-h-screen max-h-screen overflow-x-auto  h-full flex flex-col items-start justify-start `}
         >
           <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          {isAuthenticated ? (
+          {isAuth ? (
             <div class="h-screen flex flex-col w-full">
               <div class="flex-grow">
                 <Projects searchQuery={searchQuery} />
