@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./home.css";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
@@ -12,9 +12,26 @@ import Main from "@/components/Main";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { isAuthenticated } = useContext(Context);
+  const { isAuthenticated, setUser, setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
-
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const data = await axios.get(
+          "https://codepen-backend-t587.onrender.com/api/v1/user/me",
+          {
+            withCredentials: true,
+          }
+        );
+        setUser(data.user);
+        setIsAuthenticated(true);
+      } catch (error) {
+        setIsAuthenticated(false);
+        setUser({});
+      }
+    };
+    getUser();
+  }, [isAuthenticated]);
   return (
     <div className="w-full ">
       <div className="flex  ">
