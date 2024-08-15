@@ -14,6 +14,9 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const [auth, isAuth] = useState(false);
+  // const { isAuthenticated, setIsAuthenticated, user, setUser } =
+  //   useContext(Context);
+
   const navigate = useNavigate();
 
   useEffect(() => {
